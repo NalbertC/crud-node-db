@@ -44,6 +44,15 @@ Criar uma tabela com uma migration:
 
 `yarn sequelize migration:create --name=create-user`
 
+Depois de configurado a migration de criação executar comando:
+`yarn sequelize db:migrate`
+
+Desfazer a criação da última migration:
+`yarn sequelize db:migrate:undo`
+
+Adicionar novo campo na tabela:
+`yarn sequelize migration:create --name=add-age-field-to-users`
+
 ---
 
 ## Rodar o projeto já criado
