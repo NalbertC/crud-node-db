@@ -13,9 +13,6 @@ app.use(morgan('dev'))
 app.use(routes)
 
 //==================================
-
-
-//==================================
 app.listen(PORT, () => {
     console.log(`Servidor iniciado na porta ${PORT}`)
 })
