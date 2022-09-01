@@ -53,6 +53,15 @@ Desfazer a criação da última migration:
 Adicionar novo campo na tabela:
 `yarn sequelize migration:create --name=add-age-field-to-users`
 
+### Insersão de registros
+
+Criar uma pasta para representação de como a aplicação vai se comunicar com a base de dados:
+
+```
+src/model
+└── User.js
+```
+
 ---
 
 ## Rodar o projeto já criado
