@@ -1,0 +1,30 @@
+{
+  "name": "crud-node-db",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NalbertC/crud-node-db.git"
+  },
+  "author": "Nalberth Castro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NalbertC/crud-node-db/issues"
+  },
+  "homepage": "https://github.com/NalbertC/crud-node-db#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "mariadb": "^3.0.1",
+    "sequelize": "^6.21.4"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.19",
+    "sequelize-cli": "^6.4.1"
+  }
+}
