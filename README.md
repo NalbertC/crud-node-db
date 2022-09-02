@@ -62,6 +62,15 @@ src/model
 └── User.js
 ```
 
+### Relacionamentos de registros
+
+Criar uma nova tabela:
+
+`yarn sequelize migration:create --name=create-adresses`
+
+Criar a tabela:
+`yarn sequelize db:migrate`
+
 ---
 
 ## Rodar o projeto já criado
