@@ -81,4 +81,4 @@ Instalar as depências:
 
 Inicializar as migrations no banco de dados:
 
-`yarn sequelize migration:create`
+`yarn sequelize db:migrate`
