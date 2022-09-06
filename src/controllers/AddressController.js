@@ -1,8 +1,6 @@
 const User = require('../model/User')
 const Address = require('../model/Address')
-const {
-    update
-} = require('./UserController')
+
 
 module.exports = {
 
@@ -45,6 +43,12 @@ module.exports = {
                 association: 'addresses'
             }
         })
+
+        if (!user) {
+            return res.status(400).json({
+                error: 'User not found'
+            })
+        }
 
         return res.json(user)
     },
