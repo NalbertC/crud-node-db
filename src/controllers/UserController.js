@@ -28,6 +28,7 @@ module.exports = {
         const {
             user_id
         } = req.params
+
         const {
             name,
             email

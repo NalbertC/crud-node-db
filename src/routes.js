@@ -21,5 +21,7 @@ routes.delete('/users/:user_id', UserController.delete)
 //crud endereco
 routes.post('/users/:user_id/addresses', AddressController.store)
 routes.get('/users/:user_id/addresses', AddressController.index)
+routes.put('/users/:user_id/addresses/:address_id', AddressController.update)
+routes.delete('/users/:user_id/addresses/:address_id', AddressController.delete)
 
 module.exports = routes

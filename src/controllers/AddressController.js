@@ -1,22 +1,12 @@
 const User = require('../model/User')
 const Address = require('../model/Address')
+const {
+    update
+} = require('./UserController')
 
 module.exports = {
 
-    async index(req, res) {
-        const {
-            user_id
-        } = req.params
-
-        const user = await User.findByPk(user_id, {
-            include: {
-                association: 'addresses'
-            }
-        })
-
-        return res.json(user)
-    },
-
+    // create
     async store(req, res) {
         const {
             user_id
@@ -42,5 +32,93 @@ module.exports = {
             user_id,
         })
         return res.json(address)
+    },
+
+    // read
+    async index(req, res) {
+        const {
+            user_id
+        } = req.params
+
+        const user = await User.findByPk(user_id, {
+            include: {
+                association: 'addresses'
+            }
+        })
+
+        return res.json(user)
+    },
+
+    // update
+    async update(req, res) {
+        const {
+            user_id,
+            address_id
+        } = req.params
+
+        const {
+            zipcode,
+            street,
+            number,
+        } = req.body
+
+        const user = await User.findByPk(user_id)
+
+        if (!user) {
+            return res.status(400).json({
+                error: 'User not found'
+            })
+        }
+
+        const address = await Address.findByPk(address_id)
+        if (!address) {
+            return res.status(400).json({
+                error: 'Address not found'
+            })
+        }
+
+        const addressUpdate = await address.update({
+            zipcode,
+            street,
+            number,
+        }, {
+            where: {
+                id: address_id
+            }
+        })
+
+        res.json(addressUpdate)
+
+    },
+
+    // delete
+    async delete(req, res) {
+        const {
+            user_id,
+            address_id
+        } = req.params
+
+
+        const user = await User.findByPk(user_id)
+
+        if (!user) {
+            return res.status(400).json({
+                error: 'User not found'
+            })
+        }
+
+        const address = await Address.findByPk(address_id)
+
+        if (!address) {
+            return res.status(400).json({
+                error: 'Address not found'
+            })
+        }
+
+        address.destroy()
+
+        res.json({
+            mensage: "Address deleted"
+        })
     }
 }
